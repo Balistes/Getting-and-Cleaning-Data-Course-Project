@@ -15,11 +15,16 @@ if( !file.exists("./data") ) {
     dir.create("./data")
 }
 
-# read and unzip destination file
-# variable filesdest is the path to the unpacked files
-fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(fileUrl, destfile = "./data/UCIHARDataset.zip", method = "curl")
-unzip(zipfile="./data/UCIHARDataset.zip",exdir="./data")
+# check datasets on working directory
+if( !file.exists("./data/UCI HAR Dataset") ) {
+  # read and unzip destination file
+  # variable filesdest is the path to the unpacked files
+  fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+  download.file(fileUrl, destfile = "./data/UCIHARDataset.zip", method = "curl")
+  unzip(zipfile="./data/UCIHARDataset.zip",exdir="./data")
+}
+
+# File path to datasets
 fd <- file.path("./data" , "UCI HAR Dataset")
 testfd  <- file.path(fd, "test")
 trainfd <- file.path(fd, "train")

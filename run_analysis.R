@@ -10,10 +10,7 @@ if(!is.element("data.table", installed.packages()[,1])) {
 }
 library(data.table)
 
-
-# insert the name of your own working directory instead of the following names 
-# workdir <- "~/Desktop/Coursera/GettingClearingData/Week4/Project"
-# setwd(workdir)
+# create directory for datasets
 if( !file.exists("./data") ) {
     dir.create("./data")
 }
